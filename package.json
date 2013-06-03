@@ -1,0 +1,29 @@
+{
+  "name": "tracking-servers",
+  "author": "Andrii Korzh <Andrii.Korzh@gmail.com>",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "coffee server.coffee"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  },
+  "dependencies": {
+    "coffee-script": "latest",
+    "mongoose": "latest",
+    "mongoose-times": "latest",
+    "mongoose-redis-cache": "latest",
+    "hiredis": "latest",
+    "redis": "latest",
+    "pg": "latest",
+    "lodash": "latest",
+    "moment": "latest"
+  },
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-coffeelint": "latest",
+    "node-dev": "latest"
+  }
+}
