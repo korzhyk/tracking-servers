@@ -79,7 +79,7 @@ savePoint = (block)->
       q =  "
 INSERT INTO points(#{columns.join(',')}) VALUES(#{preparedValues().join(',')})
 "
-      pg_client.query q
+      pg_client.query q unless block.fake
 
 
     rd_pub.publish 'live:point', JSON.stringify

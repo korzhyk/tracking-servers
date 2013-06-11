@@ -97,6 +97,7 @@ send = (p, id) ->
   password: 'Password'
   status: 'AUTO'
   quantity: 1
+  fake: true
   data: [
     type: 'Feature'
     geometry:
