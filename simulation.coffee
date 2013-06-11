@@ -105,7 +105,7 @@ send = (p, id) ->
       type: "Point"#Latitude                Longitude
       coordinates: [point._lat, point._lon]
     properties:
-      speed: point.distanceTo(point_next)
+      speed: point.distanceTo(point_next) * 3
       direction: point.bearingTo(point_next)
       date: moment().toDate()
   ]
