@@ -91,7 +91,8 @@ if typeof (Number::toDeg) is "undefined"
 send = (p, id) ->
   id++
   point = getPoint(p)
-  point_next = getPoint(p+1)
+  p++
+  point_next = getPoint(p)
   uid: "test#{id}"
   name: "Tracker #{id}"
   password: 'Password'
@@ -116,6 +117,6 @@ setInterval(->
     rd_pub.publish "incoming:block", JSON.stringify(send val, i)
     t[i]++
     t[i] = 0 if val > total_points
-, 2000
+, 5000
 )
 
