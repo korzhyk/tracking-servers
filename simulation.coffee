@@ -109,7 +109,7 @@ send = (p, id) ->
       date: moment().toDate()
   ]
 
-t = [10, 20, 30, 40, 50]
+t = [100, 200, 300, 400, 500]
 
 setInterval(->
   t.forEach (val, i)->
