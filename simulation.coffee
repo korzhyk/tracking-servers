@@ -61,7 +61,7 @@ LatLon::distanceTo = (point, precision) ->
   dLon = lon2 - lon1
   a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) * Math.sin(dLon / 2)
   c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
-  R * c / 1000
+  R / 1000 * c
 
 
 ###
