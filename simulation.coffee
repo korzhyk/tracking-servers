@@ -61,7 +61,7 @@ LatLon::distanceTo = (point, precision) ->
   dLon = lon2 - lon1
   a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) * Math.sin(dLon / 2)
   c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
-  d = R * c
+  R * c / 1000
 
 
 ###
@@ -109,7 +109,7 @@ send = (p, id) ->
       date: moment().toDate()
   ]
 
-t = [100, 200, 300, 400, 500]
+t = [100, 200, 300, 400, 500, 600, 700]
 
 setInterval(->
   t.forEach (val, i)->
