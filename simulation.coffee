@@ -5,11 +5,13 @@ fs = require 'fs'
 _      = require "lodash"
 moment = require 'moment'
 
-#env      = process.env.NODE_ENV or 'development'
-#
-#console.log "Connecting to %s at %s:%s", 'Redis', config.redis.host, config.redis.port
-#rd_pub = redis.createClient()
-#  .on 'error', (msg)-> console.log "Redis PUB: %s".error, msg
+env      = process.env.NODE_ENV or 'development'
+# Configure
+config = require("../cli/config/environment")[env]
+
+console.log "Connecting to %s at %s:%s", 'Redis', config.redis.host, config.redis.port
+rd_pub = redis.createClient()
+  .on 'error', (msg)-> console.log "Redis PUB: %s".error, msg
 
 
 points = require './points'
@@ -110,7 +112,7 @@ t = [10, 20, 30, 40, 50, 60 ,70 ,80, 90, 100]
 
 setInterval(->
   t.forEach (val, i)->
-    console.log send val, i
+    rd_pub.publish "incoming:block", JSON.stringify(send val, i)
     t[i]++
     t[i] = 0 if val > total_points
 , 2000
